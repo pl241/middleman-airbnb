@@ -60,3 +60,29 @@
   font-weight: bold;
   }
 }
+
+.header-flat-details {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 30px;
+    padding-left: 0;
+}
+
+.header-flat-owner {
+    padding: 20px;
+}
+
+.header-flat p {
+    font-weight: normal;
+    font-size: 14px;
+    color: #777777;
+}
+
+.header-flat h1 {
+    font-size: 18px;
+    margin-top: 0;
+}

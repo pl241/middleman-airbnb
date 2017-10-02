@@ -26,66 +26,85 @@ title: Le Wagon - Middleman
   <h2 class="text-center">Recent flats</h2>
   <div class="row">
 
-
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%), url('https://kitt.lewagon.com/placeholder/cities/paris');">
-        <div class="card-category">Paris, France</div>
-        <div class="card-description">
-          <h3>Sebastien's home</h3>
-          <p>Charming room in Montmartre</p>
-          <p class="rating">
+    <% data.flats.each do |owner, flat| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%), url('https://kitt.lewagon.com/placeholder/cities/<%= flat.city_slug %>');">
+          <div class="card-category"><%= flat.city_name %></div>
+          <div class="card-description">
+            <h3><%= flat.name %></h3>
+            <p><%= flat.description %></p>
+              <% flat.rating.times do |element|%>
               <i class="fa fa-star" style="color: #ffb400"></i>
-              <i class="fa fa-star" style="color: #ffb400"></i>
-              <i class="fa fa-star" style="color: #ffb400"></i>
-              <i class="fa fa-star" style="color: #ffb400"></i>
+              <% end %>
+              <% (5 - flat.rating).times do |element|%>
               <i class="fa fa-star" style="color: #cacccd"></i>
-          </p>
+              <% end %>
+          </div>
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{owner}", class:"card-user" %>
+          <%= link_to "", "flats/#{owner}.html", class: "card-link" %>
         </div>
-        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="card-user">
+      </div>
+    <% end %>
+
+
+    <!-- <div class="col-xs-12 col-sm-6 col-md-4"> -->
+      <!-- <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%), url('https://kitt.lewagon.com/placeholder/cities/paris');"> -->
+        <!-- <div class="card-category">Paris, France</div> -->
+        <!-- <div class="card-description"> -->
+          <!-- <h3>Sebastien's home</h3> -->
+          <!-- <p>Charming room in Montmartre</p> -->
+          <!-- <p class="rating"> -->
+              <!-- <i class="fa fa-star" style="color: #ffb400"></i> -->
+              <!-- <i class="fa fa-star" style="color: #ffb400"></i> -->
+              <!-- <i class="fa fa-star" style="color: #ffb400"></i> -->
+              <!-- <i class="fa fa-star" style="color: #ffb400"></i> -->
+              <!-- <i class="fa fa-star" style="color: #cacccd"></i> -->
+          <!-- </p> -->
+        <!-- </div> -->
+        <!-- <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="card-user"> -->
         <!-- <a href="flats/ssaunier.html" class="card-link"></a> -->
-      </div>
-    </div>
+      <!-- </div> -->
+    <!-- </div> -->
 
 
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%), url('https://kitt.lewagon.com/placeholder/cities/tokyo');">
-        <div class="card-category">Tokyo, Japan</div>
-        <div class="card-description">
-          <h3>Boris's home</h3>
-          <p>Small flat in Tokyo</p>
-          <p class="rating">
-              <i class="fa fa-star" style="color: #ffb400"></i>
-              <i class="fa fa-star" style="color: #ffb400"></i>
-              <i class="fa fa-star" style="color: #ffb400"></i>
-              <i class="fa fa-star" style="color: #cacccd"></i>
-              <i class="fa fa-star" style="color: #cacccd"></i>
-          </p>
-        </div>
-        <img src="https://kitt.lewagon.com/placeholder/users/papillard" class="card-user">
+    <!-- <div class="col-xs-12 col-sm-6 col-md-4"> -->
+      <!-- <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%), url('https://kitt.lewagon.com/placeholder/cities/tokyo');"> -->
+        <!-- <div class="card-category">Tokyo, Japan</div> -->
+        <!-- <div class="card-description"> -->
+          <!-- <h3>Boris' home</h3> -->
+          <!-- <p>Small flat in Tokyo</p> -->
+          <!-- <p class="rating"> -->
+              <!-- <i class="fa fa-star" style="color: #ffb400"></i> -->
+              <!-- <i class="fa fa-star" style="color: #ffb400"></i> -->
+              <!-- <i class="fa fa-star" style="color: #ffb400"></i> -->
+              <!-- <i class="fa fa-star" style="color: #cacccd"></i> -->
+              <!-- <i class="fa fa-star" style="color: #cacccd"></i> -->
+          <!-- </p> -->
+        <!-- </div> -->
+        <!-- <img src="https://kitt.lewagon.com/placeholder/users/papillard" class="card-user"> -->
         <!-- <a href="flats/papillard.html" class="card-link"></a> -->
-      </div>
-    </div>
+      <!-- </div> -->
+    <!-- </div> -->
 
 
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%), url('https://kitt.lewagon.com/placeholder/cities/london');">
-        <div class="card-category">London, UK</div>
-        <div class="card-description">
-          <h3>Romain's home</h3>
-          <p>Nice flat in Piccadilly</p>
-          <p class="rating">
-              <i class="fa fa-star" style="color: #ffb400"></i>
-              <i class="fa fa-star" style="color: #ffb400"></i>
-              <i class="fa fa-star" style="color: #ffb400"></i>
-              <i class="fa fa-star" style="color: #ffb400"></i>
-              <i class="fa fa-star" style="color: #ffb400"></i>
-          </p>
-        </div>
-        <img src="https://kitt.lewagon.com/placeholder/users/monsieurpaillard" class="card-user">
+    <!-- <div class="col-xs-12 col-sm-6 col-md-4"> -->
+      <!-- <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%), url('https://kitt.lewagon.com/placeholder/cities/london');"> -->
+        <!-- <div class="card-category">London, UK</div> -->
+        <!-- <div class="card-description"> -->
+          <!-- <h3>Romain's home</h3> -->
+          <!-- <p>Nice flat in Piccadilly</p> -->
+          <!-- <p class="rating"> -->
+              <!-- <i class="fa fa-star" style="color: #ffb400"></i> -->
+              <!-- <i class="fa fa-star" style="color: #ffb400"></i> -->
+              <!-- <i class="fa fa-star" style="color: #ffb400"></i> -->
+              <!-- <i class="fa fa-star" style="color: #ffb400"></i> -->
+              <!-- <i class="fa fa-star" style="color: #ffb400"></i> -->
+          <!-- </p> -->
+        <!-- </div> -->
+        <!-- <img src="https://kitt.lewagon.com/placeholder/users/monsieurpaillard" class="card-user"> -->
         <!-- <a href="flats/monsieurpaillard.html" class="card-link"></a> -->
-      </div>
-    </div>
-
+      <!-- </div> -->
+    <!-- </div> -->
 
     </div>
 </div>
